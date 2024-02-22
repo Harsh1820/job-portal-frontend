@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Note the addition of 'Routes'
+
+import Register from './components/Auth/Register';
+import Login from './components/Auth/Login';
+import JobList from './components/Jobs/JobList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Routes> {/* Wrap your Route components in a Routes component */}
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/" element={<Login />} />
+                    <Route path="/jobs" element={<JobList />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
